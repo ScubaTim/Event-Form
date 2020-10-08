@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import formService from '../services/eventForm';
 
 const EventForm = () => {
+    const [forms, setForms] = useState([]);
     //first name, last name, email, event date
+    useEffect(
+        () => {
+            formService
+                .getAll()
+                .then(initialForms => {
+                    setForms(initialForms)
+                })
+                .catch(error => console.log(`There was an error getting forms. ${error}`))
+        }
+    )
+
+    console.log(forms)
+
     return (
         <Form className="px-1">
             <FormGroup>
