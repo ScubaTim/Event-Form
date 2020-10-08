@@ -1,0 +1,36 @@
+$purple: #5331d5;
+$pink: #f777d6;
+$blue: #56d7ff;
+$black: #000;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: $purple
+}
+
+hr {
+  background-color: $pink !important;
+}
+
+input {
+  border: 1px solid $purple !important;
+}
+
+.BUTTON {
+  color: $purple !important;
+  border: 2px solid $purple !important;
+}
+.BUTTON:hover, .BUTTON:active {
+  background-color: $purple !important;
+  color: white !important;
+}

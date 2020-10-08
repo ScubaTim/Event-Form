@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 
 
 ReactDOM.render(
-    <App />,
+  <App />,
   document.getElementById('root')
 );
 
