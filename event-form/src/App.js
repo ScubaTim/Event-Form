@@ -11,7 +11,7 @@ function App() {
           <Card className="CARD">
             <CardBody>
               <CardTitle className="text-center mb-4">
-                <h1 className="font-weight-bold">Event Form</h1>
+                <h1 className="font-weight-bold">Event&nbsp; Form</h1>
                 <hr />
               </CardTitle>
               <EventForm />
