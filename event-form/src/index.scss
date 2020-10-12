@@ -26,11 +26,11 @@ input {
   border: 1px solid $purple !important;
 }
 
-.BUTTON {
+.custom-btn {
   color: $purple !important;
   border: 2px solid $purple !important;
 }
-.BUTTON:hover, .BUTTON:active {
+.custom-btn:hover, .custom-btn:active {
   background-color: $purple !important;
   color: white !important;
 }
