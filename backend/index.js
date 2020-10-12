@@ -4,6 +4,7 @@ require('dotenv').config();
 const EventForm = require('./models/eventForm');
 
 app.use(express.json());
+app.use(express.static('build'))
 
 app.get('/', (request, response) => {
     EventForm.find({}).then(forms => {
@@ -33,7 +34,7 @@ app.post('/', (request, response) => {
     })
 })
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 })
