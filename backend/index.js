@@ -1,35 +1,38 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
+require('dotenv').config();
 const EventForm = require('./models/eventForm');
 
+app.use(express.json());
 
 app.get('/', (request, response) => {
-    EventForm.find({}).then(eventForms => {
-        response.json(eventForms)
+    EventForm.find({}).then(forms => {
+        response.json(forms)
+        console.log(forms)
     })
-});
-/*
-app.post('/', (request, response) => {
-    const body = request.body
+})
 
-    if (!body.content) {
-        return response.status(400).json({ error: 'content missing' })
-    }
+app.post('/', (request, response) => {
+    const form = request.body;
+    console.log(form);
+
+    if (!form) {
+        return response.status(400).json({ error: 'Content missing ' })
+    };
 
     const eventform = new EventForm({
-        firstName: 'Tim',
-        lastName: 'Gentry',
-        email: 'Fake.Email@gmail.com',
-        eventDate: new Date()
-    });
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email
+    })
 
-    eventform.save().then(savedForm => {
-        response.json(savedForm)
-    });
+    eventform.save().then(savedEventForm => {
+        console.log(savedEventForm);
 
+        return response.json(savedEventForm);
+    })
 })
-*/
+
 const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
