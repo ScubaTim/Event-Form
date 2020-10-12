@@ -8,7 +8,7 @@ function App() {
     <Container className="App">
       <Row>
         <Col className="m-5">
-          <Card className="CARD">
+          <Card className="CARD shadow-lg">
             <CardBody>
               <CardTitle className="text-center mb-4">
                 <h1 className="font-weight-bold">Event&nbsp; Form</h1>

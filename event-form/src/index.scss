@@ -20,6 +20,7 @@ body {
 
 hr {
   background-color: $pink !important;
+  height: 1px !important;
 }
 
 input {
@@ -28,9 +29,19 @@ input {
 
 .custom-btn {
   color: $purple !important;
-  border: 2px solid $purple !important;
+  border: 1px solid $purple !important;
 }
 .custom-btn:hover, .custom-btn:active {
   background-color: $purple !important;
   color: white !important;
+}
+
+.form-control:focus {
+  border: 1px solid $blue !important;
+  box-shadow: none !important;
+}
+
+.success-modal {
+  position: absolute;
+  top: 15vh;
 }

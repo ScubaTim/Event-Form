@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const SuccessModal = ({ toggle, isOpen, className }) => {
@@ -8,7 +8,7 @@ const SuccessModal = ({ toggle, isOpen, className }) => {
             <ModalHeader onClick={toggle}>Congratulations!</ModalHeader>
             <ModalBody>
                 The event form has submitted successfully!
-        </ModalBody>
+            </ModalBody>
             <ModalFooter>
                 <Button onClick={toggle} color="white" outline className="custom-btn text-uppercase font-weight-bold" >Close</Button>
             </ModalFooter>

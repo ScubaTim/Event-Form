@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import formService from '../services/eventForm';
 import SuccessModal from '../components/SuccessModal';
 
@@ -53,35 +53,41 @@ const EventForm = () => {
         setEventDate(e.target.value)
     };
 
-    // const displayModal = modalToggle ? <SuccessModal /> : null;
-
     return (
         <>
-            <SuccessModal isOpen={!!isSuccessModalOpen} toggle={() => setIsSuccessModalOpen(false)} />
-            <Form onSubmit={handleFormSubmit} className="px-1">
-                <FormGroup>
-                    <Label for="name"><h5 className="font-weight-bold text-uppercase my-0">Name</h5></Label>
-                    <div className="d-flex">
-                        <Input className="mr-2" type="text" name="firstName" id="firstName" placeholder="First name" onChange={handleFirstNameChange} />
-                        <Input type="text" name="lastName" id="lastName" placeholder="Last name" onChange={handleLastNameChange} />
-                    </div>
-                </FormGroup>
-                <FormGroup className="my-4">
-                    <Label for="email"><h5 className="font-weight-bold text-uppercase my-0">Email</h5></Label>
-                    <Input type="email" name="email" id="email" placeholder="Enter your email" onChange={handleEmailChange} />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="eventDate"><h5 className="font-weight-bold text-uppercase my-0">Event Date</h5></Label>
-                    <Input
-                        type="date"
-                        name="date"
-                        id="eventDate"
-                        placeholder="Event Date"
-                        onChange={handleEventDateChange}
-                    />
-                </FormGroup>
-                <Button size="lg" type="submit" color="white" outline block className="custom-btn font-weight-bold text-uppercase mt-4 mb-1">Submit</Button>
-            </Form>
+            <Row>
+                <Col>
+                    <SuccessModal className="success-modal" isOpen={!!isSuccessModalOpen} toggle={() => setIsSuccessModalOpen(false)} />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Form onSubmit={handleFormSubmit} className="px-1">
+                        <FormGroup>
+                            <Label for="name"><h5 className="font-weight-bold text-uppercase my-0">Name</h5></Label>
+                            <div className="d-flex">
+                                <Input className="mr-2" type="text" name="firstName" id="firstName" placeholder="First name" onChange={handleFirstNameChange} />
+                                <Input type="text" name="lastName" id="lastName" placeholder="Last name" onChange={handleLastNameChange} />
+                            </div>
+                        </FormGroup>
+                        <FormGroup className="my-4">
+                            <Label for="email"><h5 className="font-weight-bold text-uppercase my-0">Email</h5></Label>
+                            <Input type="email" name="email" id="email" placeholder="Enter your email" onChange={handleEmailChange} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="eventDate"><h5 className="font-weight-bold text-uppercase my-0">Event Date</h5></Label>
+                            <Input
+                                type="date"
+                                name="date"
+                                id="eventDate"
+                                placeholder="Event Date"
+                                onChange={handleEventDateChange}
+                            />
+                        </FormGroup>
+                        <Button size="lg" type="submit" color="white" outline block className="custom-btn font-weight-bold text-uppercase mt-4 mb-1">Submit</Button>
+                    </Form>
+                </Col>
+            </Row>
         </>
     );
 }
