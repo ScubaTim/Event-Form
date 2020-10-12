@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { compose } from 'redux';
+import injectReducer from '../../utils/injectReducer';
+import injectSaga from '../../utils/injectSaga';
+
 import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import formService from '../services/eventForm';
-import SuccessModal from '../components/SuccessModal';
+import formService from '../../services/eventForm';
+import SuccessModal from '../SuccessModal';
+
+import saga from './saga';
+import reducer from './reducer';
+import * as constants from './constants';
+
 
 const EventForm = () => {
     const [form, setForms] = useState([]);
@@ -92,4 +101,10 @@ const EventForm = () => {
     );
 }
 
-export default EventForm;
+const withSaga = injectSaga({ key: constants.EVENT_FORM, saga });
+const withReducer = injectReducer({ key: constants.EVENT_FORM, reducer })
+
+export default compose(
+    withSaga,
+    withReducer,
+)(EventForm);
