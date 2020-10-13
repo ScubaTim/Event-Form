@@ -29,3 +29,5 @@ const renderApp = () => {
 };
 
 renderApp();
+
+export default renderApp;

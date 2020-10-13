@@ -1,14 +1,13 @@
-import React from 'react';
 import { reset } from 'redux-form';
 import {
     all,
     call,
     put,
-    take,
     takeLatest
 } from 'redux-saga/effects';
 
-import create from '../../services/eventForm';
+import create from '../../services/create';
+//import getAll from '../../services/getAll';
 
 import * as constants from './constants';
 import * as actions from './actions';
@@ -22,11 +21,12 @@ export default function* eventFormSaga() {
     ])
 }
 
-export function* onFormSubmitSaga(params) {
+export function* onFormSubmitSaga({ params }) {
     try {
+        console.log('params in saga', params)
         const response = yield call(create, { newObject: params })
         yield put(actions.onFormSubmitSuccess())
-        console.log(response);
+        console.log('saga resonse', response); //never happens
         yield put(reset(constants.EVENT_FORM))
     } catch (error) {
         yield put(actions.onFormSubmitFail(error.message))

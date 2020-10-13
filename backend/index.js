@@ -8,14 +8,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('build'))
 
-app.get('/', (request, response) => {
-    EventForm.find({}).then(forms => {
-        response.json(forms)
-        console.log(forms)
-    })
+app.get('/', async (request, response) => {
+    await EventForm.find({})
+    response.json(forms)
+    console.log(forms)
 })
 
-app.post('/', (request, response) => {
+app.post('/', async (request, response) => {
     const form = request.body;
     console.log(form);
 
@@ -29,7 +28,7 @@ app.post('/', (request, response) => {
         email: form.email
     })
 
-    eventform.save().then(savedEventForm => {
+    await eventform.save().then(savedEventForm => {
         console.log(savedEventForm);
 
         return response.json(savedEventForm);
